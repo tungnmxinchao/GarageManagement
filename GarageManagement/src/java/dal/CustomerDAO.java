@@ -215,7 +215,7 @@ public class CustomerDAO extends DBUtils {
                 String salesName = rs.getString("salesName");
                 Date birthday = rs.getDate("birthday");
                 String sexSale = rs.getString(19);
-                String salesAddress = rs.getString("salesName");
+                String salesAddress = rs.getString("salesAddress");
 
                 Customer customer = new Customer(custID, cusName, cusPhone, sex, address);
 

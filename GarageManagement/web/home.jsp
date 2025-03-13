@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="source/font-awesome-4.5.0/css/font-awesome.css">
         <link rel="stylesheet" type="text/css" href="style/slider.css">
         <link rel="stylesheet" type="text/css" href="style/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="source/custon-css/header-customer.css">
     </head>
     <body>
         <!-- Header -->
@@ -44,7 +45,7 @@
                 </div>
                 <br>
                 <br>
-                <!-- ________________________Latest Cars Image Thumbnail________________-->
+
                 <div class="grid">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -81,7 +82,7 @@
 
             <jsp:include page="common/footer.jsp"></jsp:include>
         </div>
-
+        <script type="text/javascript" src="source/js/header-customer.js"></script>
         <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>
         <script type="text/javascript" src="source/js/isotope.js"></script>
         <script type="text/javascript" src="source/js/myscript.js"></script> 

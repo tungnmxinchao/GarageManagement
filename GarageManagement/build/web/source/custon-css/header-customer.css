@@ -1,0 +1,21 @@
+.user-dropdown .dropdown-menu {
+  min-width: 150px;
+  padding: 5px 0;
+}
+
+.user-dropdown .dropdown-menu li a {
+  padding: 8px 15px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.user-dropdown .dropdown-menu li a:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+  padding-left: 20px;
+}
+
+/* Ensure dropdown is hidden by default and shows on hover */
+.user-dropdown:hover .dropdown-menu {
+  display: block;
+}

@@ -4,6 +4,7 @@
     Author     : TNO
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="allcontain">
     <div class="header">
@@ -36,7 +37,7 @@
         </div>
         <div class="collapse navbar-collapse" id="upmenu">
             <ul class="nav navbar-nav" id="navbarontop">
-                <li class="active"><a href="#">HOME</a> </li>
+                <li class="active"><a href="home">HOME</a> </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES <span class="caret"></span></a>
                     <ul class="dropdown-menu dropdowncostume">
@@ -53,11 +54,33 @@
                         <li><a href="3">3</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="contact.html">CONTACT</a>
+                <c:if test="${sessionScope.customer != null}">
 
-                </li>
-                <button><span class="postnewcar">POST NEW CAR</span></button>
+                    <li>
+                        <a href="viewTickets">My Tickets</a>
+                    </li>
+                    <li>
+                        <a href="viewInvoices">My Invoices</a>
+                    </li>
+                </c:if>
+                <c:if test="${sessionScope.customer == null}">
+                    <li>
+                        <a href="login">Login</a>
+                    </li>
+                </c:if>
+
+                <c:if test="${sessionScope.customer != null}">
+                    <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Hello ${sessionScope.customer.custName} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdowncostume user-menu">
+                            <li><a href="viewProfile">View Profile</a></li>
+                            <li><a href="logout">Logout</a></li>
+                        </ul>
+                    </li>
+                </c:if>
+
             </ul>
         </div>
     </nav>
