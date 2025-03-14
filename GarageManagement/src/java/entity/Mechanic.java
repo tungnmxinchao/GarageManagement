@@ -5,27 +5,30 @@
  */
 package entity;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author TNO
  */
 public class Mechanic {
-    private int mechanicID;
+
+    private BigDecimal mechanicID;
     private String mechanicName;
 
     public Mechanic() {
     }
 
-    public Mechanic(int mechanicID, String mechanicName) {
+    public Mechanic(BigDecimal mechanicID, String mechanicName) {
         this.mechanicID = mechanicID;
         this.mechanicName = mechanicName;
     }
 
-    public int getMechanicID() {
+    public BigDecimal getMechanicID() {
         return mechanicID;
     }
 
-    public void setMechanicID(int mechanicID) {
+    public void setMechanicID(BigDecimal mechanicID) {
         this.mechanicID = mechanicID;
     }
 
@@ -41,6 +44,5 @@ public class Mechanic {
     public String toString() {
         return "Mechanic{" + "mechanicID=" + mechanicID + ", mechanicName=" + mechanicName + '}';
     }
-    
-    
+
 }

@@ -11,6 +11,7 @@ import entity.Mechanic;
 import entity.Service;
 import entity.ServiceMechanic;
 import entity.ServiceTicket;
+import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
@@ -98,9 +99,9 @@ public class MechanicsDAO extends DBUtils {
         try {
             ps = conn.prepareStatement(sql);
 
-            ps.setString(1, custIdRequest);
-            ps.setString(2, carIdRequest);
-            ps.setString(3, dateRecievedRequest);
+            ps.setString(1, "%" + custIdRequest + "%");
+            ps.setString(2, "%" + carIdRequest + "%");
+            ps.setString(3, "%" + dateRecievedRequest + "%");
 
             rs = ps.executeQuery();
 
@@ -152,7 +153,7 @@ public class MechanicsDAO extends DBUtils {
             while (rs.next()) {
                 int ticketId = rs.getInt("serviceTicketID");
                 int serviceId = rs.getInt("serviceID");
-                int mechanicID = rs.getInt("mechanicID");
+                BigDecimal mechanicID = rs.getBigDecimal("mechanicID");
                 int hours = rs.getInt("hours");
                 String comment = rs.getString("comment");
                 double rate = rs.getDouble("rate");
@@ -177,17 +178,19 @@ public class MechanicsDAO extends DBUtils {
                 + "    [hours] = ?,\n"
                 + "    [comment] = ?,\n"
                 + "    [rate] = ?\n"
-                + "WHERE [serviceTicketID] = ?;";
+                + "WHERE [serviceTicketID] = ? AND [serviceID] = ?";
+
         try {
             ps = conn.prepareStatement(sql);
 
             ps.setInt(1, mechanic.getServiceTicketID());
             ps.setInt(2, mechanic.getServiceID());
-            ps.setInt(3, mechanic.getMechanicID());
+            ps.setBigDecimal(3, mechanic.getMechanicID());
             ps.setInt(4, mechanic.getHours());
             ps.setString(5, mechanic.getCommment());
             ps.setDouble(6, mechanic.getRate());
             ps.setInt(7, mechanic.getServiceTicketID());
+            ps.setInt(8, mechanic.getServiceID());
 
             int rowAff = ps.executeUpdate();
 
@@ -209,9 +212,9 @@ public class MechanicsDAO extends DBUtils {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                int serviceId = rs.getInt("");
-                String serviceName = rs.getString("");
-                double hourlyRaye = rs.getDouble("");
+                int serviceId = rs.getInt("serviceID");
+                String serviceName = rs.getString("serviceName");
+                double hourlyRaye = rs.getDouble("hourlyRate");
 
                 Service service = new Service(serviceId, serviceName, hourlyRaye);
 
@@ -254,29 +257,27 @@ public class MechanicsDAO extends DBUtils {
         return services;
     }
 
-    public Mechanic findMechanicByID(int id) {
-        String sql = "select * from Mechanic m\n"
-                + "where m.mechanicID = ?";
+    public List<Mechanic> findAllMechanics() {
+        List<Mechanic> mechanics = new ArrayList<>();
+        String sql = "select * from Mechanic m\n";
         try {
             ps = conn.prepareStatement(sql);
 
-            ps.setInt(1, id);
-
             rs = ps.executeQuery();
 
-            if (rs.next()) {
-                int mechanicId = rs.getInt("mechanicID");
+            while (rs.next()) {
+                BigDecimal mechanicId = rs.getBigDecimal("mechanicID");
                 String name = rs.getString("mechanicName");
 
                 Mechanic mechanic = new Mechanic(mechanicId, name);
 
-                return mechanic;
+                mechanics.add(mechanic);
             }
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return null;
+        return mechanics;
     }
 
     public boolean addService(Service service) {

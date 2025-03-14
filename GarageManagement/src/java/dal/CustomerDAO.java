@@ -43,19 +43,18 @@ public class CustomerDAO extends DBUtils {
     public static void main(String[] args) {
         try {
             CustomerDAO cusDAO = new CustomerDAO();
-            
-            
+
             Customer customer = new Customer(11099, "tungupdaye", 12345, "M", "hanoi");
-         if( cusDAO.updateCustomer(customer)){
-             System.out.println("thanh cong");
-         }else{
-             System.out.println("that bai");
-         }
-          
+            if (cusDAO.updateCustomer(customer)) {
+                System.out.println("thanh cong");
+            } else {
+                System.out.println("that bai");
+            }
+
             System.out.println(customer);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }
 
     public Customer login(String name, String phone) throws ClassNotFoundException, SQLException {
@@ -137,6 +136,54 @@ public class CustomerDAO extends DBUtils {
         }
 
         return tickets;
+    }
+
+    public ServiceTicket viewTicketsById(int id) throws ClassNotFoundException, SQLException {
+        String sql = "select * from ServiceTicket s\n"
+                + "join Customer c\n"
+                + "on s.custID = c.custID\n"
+                + "join Cars ca\n"
+                + "on s.carID = ca.carID\n"
+                + "where s.serviceTicketID = ?";
+        try (Connection connection = DBUtils.getConnection()) {
+            ps = connection.prepareStatement(sql);
+
+            ps.setInt(1, id);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int serviceTickerId = rs.getInt("serviceTicketID");
+                Date dateReceived = rs.getDate("dateReceived");
+                Date dateReturned = rs.getDate("dateReturned");
+                int custID = rs.getInt("custID");
+
+                String cusName = rs.getString("custName");
+                int cusPhone = rs.getInt("phone");
+                String sex = rs.getString("sex");
+                String address = rs.getString("cusAddress");
+
+                int carId = rs.getInt("carID");
+                String serialNumber = rs.getString("serialNumber");
+                String model = rs.getString("model");
+                String colour = rs.getString("colour");
+                int year = rs.getInt("year");
+
+                Customer customer = new Customer(custID, cusName, cusPhone, sex, address);
+
+                Cars car = new Cars(carId, serialNumber, model, colour, year);
+
+                ServiceTicket ticket = new ServiceTicket(serviceTickerId, dateReceived,
+                        dateReturned, customer, car);
+
+                return ticket;
+
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return null;
     }
 
     public List<PartsUsed> getPartUsedByServiceTicketId(int id) throws ClassNotFoundException {

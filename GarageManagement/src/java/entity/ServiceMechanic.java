@@ -5,14 +5,17 @@
  */
 package entity;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author TNO
  */
 public class ServiceMechanic {
+
     private int serviceTicketID;
     private int serviceID;
-    private int mechanicID;
+    private BigDecimal mechanicID;
     private int hours;
     private String commment;
     private double rate;
@@ -20,7 +23,7 @@ public class ServiceMechanic {
     public ServiceMechanic() {
     }
 
-    public ServiceMechanic(int serviceTicketID, int serviceID, int mechanicID, int hours, String commment, double rate) {
+    public ServiceMechanic(int serviceTicketID, int serviceID, BigDecimal mechanicID, int hours, String commment, double rate) {
         this.serviceTicketID = serviceTicketID;
         this.serviceID = serviceID;
         this.mechanicID = mechanicID;
@@ -45,11 +48,11 @@ public class ServiceMechanic {
         this.serviceID = serviceID;
     }
 
-    public int getMechanicID() {
+    public BigDecimal getMechanicID() {
         return mechanicID;
     }
 
-    public void setMechanicID(int mechanicID) {
+    public void setMechanicID(BigDecimal mechanicID) {
         this.mechanicID = mechanicID;
     }
 
@@ -77,10 +80,4 @@ public class ServiceMechanic {
         this.rate = rate;
     }
 
-    @Override
-    public String toString() {
-        return "ServiceMechanic{" + "serviceTicketID=" + serviceTicketID + ", serviceID=" + serviceID + ", mechanicID=" + mechanicID + ", hours=" + hours + ", commment=" + commment + ", rate=" + rate + '}';
-    }
-    
-    
 }
