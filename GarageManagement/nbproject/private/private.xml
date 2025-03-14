@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/controller/customer/ViewProfile.java</file>
+            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/entity/PartsUsed.java</file>
+            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/entity/ServiceMechanic.java</file>
+            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/web/manage-service-ticket.jsp</file>
             <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/dal/MechanicsDAO.java</file>
-            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/controller/customer/UpdateProfile.java</file>
-            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/entity/ServiceTicket.java</file>
-            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/web/view-profile.jsp</file>
-            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/web/service-tickets-customer.jsp</file>
-            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/dal/CustomerDAO.java</file>
+            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/controller/mechanics/ManageServiceTickets.java</file>
+            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/web/edit-service-ticket.jsp</file>
+            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/entity/SalesPerson.java</file>
+            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/entity/Service.java</file>
+            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/controller/mechanics/EditTicket.java</file>
+            <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/entity/SaleInvoice.java</file>
             <file>file:/D:/semester_fpt/Teaching-PRJ/GarageCode/GarageManagement/GarageManagement/src/java/entity/Mechanic.java</file>
         </group>
     </open-files>

@@ -203,9 +203,8 @@ public class MechanicsDAO extends DBUtils {
     }
 
     public List<Service> findAllService() {
-        String sql = "select * from ServiceMehanic s\n"
-                + "join Service se\n"
-                + "on s.serviceID = se.serviceID";
+        String sql = "select * from Service s\n"
+                + "order by s.serviceID desc";
         try {
             ps = conn.prepareStatement(sql);
 

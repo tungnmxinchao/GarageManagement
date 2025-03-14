@@ -9,9 +9,9 @@
 <div class="sidebar">
     <h4>Admin Panel</h4>
     <a href="adminDashboard.jsp">Dashboard</a>
-    <a href="manageCustomers.jsp">Manage Customers</a>
-    <a href="manageCars.jsp">Manage Cars</a>
-    <a href="manageServices.jsp">Manage Services</a>
-    <a href="manageMechanics.jsp">Manage Mechanics</a>
+    <a href="manageCustomers.jsp">Customers</a>
+    <a href="manageCars.jsp">Cars</a>
+    <a href="manage-services">Services</a>
+    <a href="manage-service-tickets">Tickets Services</a>
     <a href="logout.jsp">Logout</a>
 </div>

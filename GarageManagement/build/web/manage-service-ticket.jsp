@@ -12,44 +12,44 @@
     </head>
     <body>
 
-         <jsp:include page="common/side-bar-dashboard.jsp"></jsp:include>
+        <jsp:include page="common/side-bar-dashboard.jsp"></jsp:include>
 
-        <!-- Main Content -->
-        <div class="content">
-            <h2>Manage Service Ticket</h2>
+            <!-- Main Content -->
+            <div class="content">
+                <h2>Manage Service Ticket</h2>
 
-            <!-- Search Form -->
-            <form action="manage-service-tickets">
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <input type="text" name="carId" id="searchCarId" class="form-control" placeholder="Search by Car ID">
+                <!-- Search Form -->
+                <form action="manage-service-tickets">
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <input type="text" name="carId" id="searchCarId" class="form-control" placeholder="Search by Car ID">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" name="custId" id="searchCustomerId" class="form-control" placeholder="Search by Customer ID">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" name="dateReceived" id="searchDateReceived" class="form-control">
+                        </div>
+                        <div class="col-md-3 d-flex">
+                            <button class="btn btn-primary me-2" name="action" value="filter">Search</button>
+                            <a href="manage-service-tickets" class="btn btn-secondary">Reset</a>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <input type="text" name="custId" id="searchCustomerId" class="form-control" placeholder="Search by Customer ID">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="date" name="dateReceived" id="searchDateReceived" class="form-control">
-                    </div>
-                    <div class="col-md-3 d-flex">
-                        <button class="btn btn-primary me-2" name="action" value="filter">Search</button>
-                        <a href="manage-service-tickets" class="btn btn-secondary">Reset</a>
-                    </div>
-                </div>
-            </form>          
+                </form>          
 
-            <!-- Service Ticket Table -->
-            <table class="table table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Service Ticket ID</th>
-                        <th>Date Received</th>
-                        <th>Date Returned</th>
-                        <th>Customer</th>
-                        <th>Car</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="ticketTableBody">
+                <!-- Service Ticket Table -->
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Service Ticket ID</th>
+                            <th>Date Received</th>
+                            <th>Date Returned</th>
+                            <th>Customer</th>
+                            <th>Car</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ticketTableBody">
                     <c:forEach items="${tickets}" var="tickets">
                         <tr>
                             <td>${tickets.serviceTicketID}</td>
@@ -65,10 +65,5 @@
                 </tbody>
             </table>
         </div>
-
-        <script>
-
-        </script>
-
     </body>
 </html>
